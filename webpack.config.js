@@ -1,5 +1,4 @@
 var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var path = require('path');
 var env = require('yargs').argv.env;
 
@@ -7,14 +6,14 @@ var libraryName = 'plusOne';
 
 var plugins = [], outputFile;
 
-if (env.mode === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
+if (env.mode === 'production') {
   outputFile = libraryName + '.min.js';
 } else {
   outputFile = libraryName + '.js';
 }
 
 const config = {
+  mode: 'development',
   entry: __dirname + '/src/index.js',
   output: {
     path: __dirname + '/lib',
@@ -45,5 +44,9 @@ const config = {
   },
   plugins: plugins
 };
+
+if (env.mode === 'production') {
+  config.mode = 'production';
+}
 
 module.exports = config;
