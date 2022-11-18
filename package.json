@@ -19,7 +19,7 @@
     "jsdom": "^15.2.0",
     "mocha": "^6.2.2",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.12",
     "yargs": "^14.2.0"
   },
   "keywords": [
